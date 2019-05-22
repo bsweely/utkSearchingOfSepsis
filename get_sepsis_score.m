@@ -1,9 +1,9 @@
-function [score, label] = get_sepsis_scoreRF(data, model)
+function [score, label] = get_sepsis_score(data, model)
 %include all available data
 selvital = [1:40];
 
 %number of trees in forest
-nom = 27;
+nom = size(model);
 
 %imputation
 X = data(:,selvital); 
