@@ -16,10 +16,11 @@ function driver(input_directory, output_directory)
 
     % Iterate over files.
     num_files = length(files);
-    parfor i = 1:num_files
+    for i = 1:num_files
         % Load data.
         input_file = fullfile(input_directory, files{i});
         data = load_challenge_data(input_file);
+
         % Make predictions.
         num_rows = size(data, 1);
         scores = zeros(num_rows, 1);
@@ -30,7 +31,7 @@ function driver(input_directory, output_directory)
             scores(t) = current_score;
             labels(t) = current_label;
         end
-        
+
         % Save results.
         output_file = fullfile(output_directory, files{i});
         save_challenge_predictions(output_file, scores, labels);
