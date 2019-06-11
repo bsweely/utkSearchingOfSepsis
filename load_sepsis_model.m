@@ -3,6 +3,7 @@ function model = load_sepsis_model()
     import classreg.learning.classif.CompactClassificationTree.*;
     
     %load array of trees as random forest model
-    loadedObj = load('models.mat');
-    model = loadedObj.models;
+    loadedObj = load('model.mat');
+    model = loadedObj.model;
+    model = handler(model);
 end

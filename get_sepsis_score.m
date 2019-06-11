@@ -3,7 +3,7 @@ function [score, label] = get_sepsis_score(data, model)
 selvital = [1:40];
 
 %number of trees in forest
-nom = size(model);
+nom = size(model.data);
 
 %imputation
 X = data(:,selvital); 
@@ -13,7 +13,7 @@ X = fillmissing(X,'constant',0);
 %produce predictions for all trees
 outp = [];
 for i = 1:nom
-    outp(:, i) = predict(model{i}, X);
+    outp(:, i) = predict(model.data{i}, X);
 end
 
 %voting on scores
