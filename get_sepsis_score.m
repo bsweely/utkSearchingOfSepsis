@@ -7,10 +7,12 @@ X = data(:,selvital);
 X = fillmissing(X,'previous');
 X = fillmissing(X,'constant',0);
 
-%make prediction based on current data
+patient = cell(1,1);
+patient{1} = X;
+X = cell2mat(history(patient, 10));
+
 scores = predict(model.data, X);
 
-%use last timestamp as most recent score
 score = scores(end);
 label = score;
 end
