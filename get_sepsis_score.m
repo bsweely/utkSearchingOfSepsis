@@ -9,7 +9,7 @@ X = fillmissing(X,'constant',0);
 
 patient = cell(1,1);
 patient{1} = X;
-X = cell2mat(history(patient, 10));
+X = cell2mat(history(patient, 8));
 
 scores = predict(model.data, X);
 
